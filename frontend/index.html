@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MapMyAid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <h1 class="main-title">Map My Aid</h1>
+    <p class="subtitle">Stanford Project: Generative AI for Learning</p>
+
+    <!-- Input -->
+    <div class="input-group">
+      <input id="question" type="text" placeholder="e.g., Stanford undergraduate scholarships" list="history-list">
+      <datalist id="history-list"></datalist>
+      <button onclick="askQuestion()">Ask</button>
+    </div>
+
+    <!-- Response -->
+    <div id="response" class="response-card"></div>
+
+    <!-- Stanford Student Button -->
+    <button class="student-btn" onclick="goToResources()">Stanford Student?</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

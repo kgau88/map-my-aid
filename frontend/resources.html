@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stanford Student Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">Stanford Student Resources</h1>
+    <p class="subtitle">Select a category or type your need below</p>
+
+    <div class="input-group">
+      <input id="category" type="text" placeholder="e.g., financial, graduate, mental health">
+      <button onclick="showCategory()">Search</button>
+    </div>
+
+    <div id="result" class="response-card"></div>
+    <button class="student-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    const resources = {
+      financial: [
+        "Financial Aid Graduate Basics",
+        "Financial Aid Undergraduate Basics",
+        "Financial Aid Office",
+        "Graduate Student Support Funding",
+        "Mind Over Money",
+        "Opportunity Fund",
+        "Student Services Center",
+        "Basic Needs and Financial Resources List"
+      ],
+      general: [
+        "Food Pantry Pop-Up",
+        "Lathrop Equipment and Laptop Lending",
+        "Free and Low-Cost Internet Access",
+        "Free Laptops"
+      ],
+      undergraduate: [
+        "The Opportunity Fund",
+        "Flex-Term Grants",
+        "Medical/Dental Expense Form",
+        "Undergraduate Cash Advance",
+        "Lathrop Learning Hub Internet Access Help",
+        "Subsidized Federal Direct Loans"
+      ],
+      graduate: [
+        "Grad Cash Advance Program",
+        "Emergency Grant-in-Aid Funds",
+        "Graduate Student Aid Fund",
+        "Graduate Family Grant Program",
+        "Graduate School of Education Emergency Funding Program",
+        "Miles and Nancy Rubin Loan Repayment Assistance Program",
+        "Stanford Law School Cash Advance",
+        "GSB Emergency Grant",
+        "Unsubsidized Federal Direct Loans"
+      ],
+      "mental health": [
+        "CAPS: Stanford Counseling and Psychological Services",
+        "Weiland Health Initiative",
+        "Vaden Well-Being",
+        "Queer Student Resources (QSR)"
+      ]
+    };
+
+    function showCategory() {
+      const input = document.getElementById("category").value.toLowerCase().trim();
+      const resultDiv = document.getElementById("result");
+
+      let category;
+      if (input.includes("finan")) category = "financial";
+      else if (input.includes("under")) category = "undergraduate";
+      else if (input.includes("grad")) category = "graduate";
+      else if (input.includes("mental") || input.includes("health")) category = "mental health";
+      else category = "general";
+
+      const list = resources[category] || [];
+      if (list.length === 0) {
+        resultDiv.innerHTML = "<p>No matching resources found.</p>";
+        return;
+      }
+
+      resultDiv.innerHTML = `
+        <h3>${category.charAt(0).toUpperCase() + category.slice(1)} Resources</h3>
+        <ul>${list.map(item => `<li>${item}</li>`).join("")}</ul>
+      `;
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
