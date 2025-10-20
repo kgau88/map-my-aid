@@ -19,5 +19,4 @@ cd map-my-aid
 2. Install Dependencies: npm install
 3. Create a .env File
 GOOGLE_API_KEY=your_api_key_here
-👉 Get your key at Google AI Studio
 4. Run the App: node server.js
